@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://mdlx0rf3srk8"]
+
+[ext_resource type="Script" uid="uid://byoefp3tb3aq1" path="res://star_buff.gd" id="1_1oi5e"]
+[ext_resource type="Texture2D" uid="uid://rmodv55mb4ev" path="res://art/starBuff_yellow.png" id="1_58ea1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1oi5e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_58ea1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="StarBuff" type="RigidBody2D" groups=["starbuffs"]]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_1oi5e")
+
+[node name="star" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_1oi5e")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -12, 4, -4, 13, -3, 6, 3, 8, 12, 0, 8, -8, 12, -7, 3, -13, -3, -4, -4)
